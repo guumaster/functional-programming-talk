@@ -1,0 +1,9 @@
+{
+  "name": "FunctionalProgramming",
+  "author": "Gustavo Marin @guumaster",
+  "description": "A brief introduction to functional programming with JavaScript",
+  "dynamicTheme": false,
+  "printTheme": "simple",
+  "theme": "night",
+  "highlightTheme": "monokai_sublime"
+}

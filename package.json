@@ -1,0 +1,13 @@
+{
+  "name": "IntroductionToFunctionalProgramming",
+  "private": true,
+  "author": "Gustavo Marin @guumaster",
+  "description": "A brief introduction to functional programming with JavaScript",
+  "scripts": {
+    "start": "prez --serve --watch --such-notes",
+    "print": "prez --print --no-open-browser"
+  },
+  "dependencies": {
+    "prez": "^4.4.0"
+  }
+}

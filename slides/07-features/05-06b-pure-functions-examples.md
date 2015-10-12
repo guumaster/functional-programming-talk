@@ -1,0 +1,6 @@
+#### Pure functions
+
+
+
+
+Note: 
