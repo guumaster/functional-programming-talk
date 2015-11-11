@@ -13,7 +13,6 @@ document
 ```js
 var addMood = (mood) => {
   return (str) => `${str}, ${mood}`;
-  };
 };
 
 var happy = addMood(" and I'm happy!");
