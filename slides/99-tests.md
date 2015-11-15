@@ -1,4 +1,4 @@
-$background:images/weird.gif$
+---- /$background:images/weird.gif$
 
 ### Check the background!
 

@@ -1,5 +1,3 @@
-
-
 #### Lambda calculus
 
 Every functional programming languages has its roots in **lambda calculus** developed by Alonzo Church in the 1930s.
