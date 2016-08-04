@@ -3,14 +3,14 @@
 ```js
 var name = function (last) {
   return function (first) { 
-    return last + ', ' + first;
-  };
-};
+    return last + ', ' + first
+  }
+}
 
-var partial = name('Norris');
+var partial = name('Norris')
 
-partial('Chuck');  // Norris, Chuck
-partial('Adam');  // Norris, Adam
+partial('Chuck')  // Norris, Chuck
+partial('Adam')  // Norris, Adam
 
 ```
 

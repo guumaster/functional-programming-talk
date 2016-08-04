@@ -1,0 +1,54 @@
+<div data-markdown
+     data-separator="^\n--\n"
+     data-separator-notes="^Note:"
+     data-attributes="--\s(.*?)$"
+     data-charset="utf-8">
+    <script type="text/template">
+## Differences with OOP
+
+--
+#### Object Oriented programming
+
+* Data and the operations upon it are tightly coupled.
+* An object owns its data and it owns the implementation of the operations on the data.
+* Hides operations from other objects via its interfaces.
+* **The central activity is composing new objects and extending existing objects with new methods**.
+
+--
+#### Functional programming
+
+* Data is only loosely coupled to functions.
+* You can write different operations on the same data structure
+* The central model for abstraction is the function, not the data structure.
+* Functions hide their implementation
+* **Central activity in FP is writing new functions**.
+
+--
+#### Simple put
+
+> -- OOP makes code understandable by **encapsulating moving parts**
+> -- FP makes code understandable by **minimizing moving parts**
+*by Michael Feathers*
+
+
+--
+## They can co-exists
+
+- Same levels of expressiveness. <!-- .element: class="fragment slide" -->
+- Similar abilities to encapsulate programs into smaller parts. <!-- .element: class="fragment slide" -->
+- Parts that can be combined and recombined. <!-- .element: class="fragment slide" -->
+- The main difference is the relationship between data and operations on the data. <!-- .element: class="fragment slide" -->
+- OOP excels at composing data. FP excels at composing logic. <!-- .element: class="fragment slide" -->
+- JavaScript is as functional as it is object-oriented; and both are useful for implementing applications. <!-- .element: class="fragment slide" -->
+- Functional programming and object-oriented programming are not mutually exclusive and can be used simultaneously. <!-- .element: class="fragment slide" -->
+
+Note:
+
+- JavaScript allows a variety of different programming paradigms:
+    * OO / functional / procedural
+
+- Is not a *pure* functional programming language, but it allows us to program in a functional way
+- You can use both, OO and FP, in a mixed paradigm. Just try not to change state, use immutable objects
+
+    </script>
+</div>

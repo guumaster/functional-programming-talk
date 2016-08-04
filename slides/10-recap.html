@@ -1,0 +1,54 @@
+<div data-markdown
+     data-separator="^\n--\n"
+     data-separator-notes="^Note:"
+     data-attributes="--\s(.*?)$"
+     data-charset="utf-8">
+    <script type="text/template">
+## Revisiting FP benefits
+
+--
+## Revisiting FP benefits
+
+Functions
+- small functions are simpler, more maintainable <!-- .element: class="fragment slide" -->
+- composition makes more readable and fluent APIs <!-- .element: class="fragment slide" -->
+- function composition allow smaller and reusable building blocks <!-- .element: class="fragment slide" -->
+
+--
+## Revisiting FP benefits
+
+Testability
+- functional style code and pure functions are easier to test and reason about than stateful and imperative code <!-- .element: class="fragment slide" -->
+
+--
+## Revisiting FP benefits
+
+Optimizations
+- relying in language construct allows internal optimizations, parallelization, lazy evaluation <!-- .element: class="fragment slide" -->
+- pure functions have referential transparency, allowing cache heavy computations (memoization) <!-- .element: class="fragment slide" -->
+
+--
+## Revisiting FP benefits
+
+Side effects
+- side effects couple with time, or questions about "what's the state" <!-- .element: class="fragment slide" -->
+- avoid it by decomposing functions with side effects into pure functions and smaller functions with side effects <!-- .element: class="fragment slide" -->
+- repeat this process to push side effects to the outer layer of your programs <!-- .element: class="fragment slide" -->
+
+--
+## Revisiting FP benefits
+
+Immutability
+- Mutable state + parallel processing = non-determinism <!-- .element: class="fragment slide" -->
+- purely functional languages avoid race conditions because they don't have mutable variables <!-- .element: class="fragment slide" -->
+- Imperative code tends to have mutable state, and is more vulnerable to race conditions <!-- .element: class="fragment slide" -->
+
+--
+## Revisiting FP benefits
+
+Elegance
+- There is a subset of very important concepts—borrowed from mathematics that form the backbone of all functional programming. <!-- .element: class="fragment slide" -->
+- More declarative. Write less code and focus more on **what** to do and less on **how** to do it. <!-- .element: class="fragment slide" -->
+
+    </script>
+</div>

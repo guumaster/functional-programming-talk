@@ -1,0 +1,61 @@
+<div data-markdown
+     data-separator="^\n--\n"
+     data-separator-notes="^Note:"
+     data-attributes="--\s(.*?)$"
+     data-charset="utf-8">
+    <script type="text/template">
+## Javascript as a functional language
+
+--
+
+## Functional language features
+
+* First Class functions <!-- .element: class="fragment slide" -->
+* Higher Order Functions <!-- .element: class="fragment slide" -->
+* No Side Effects<!-- .element: class="fragment slide" -->
+* Pure functions <!-- .element: class="fragment slide" -->
+* Referential Transparency <!-- .element: class="fragment slide" -->
+* Immutability <!-- .element: class="fragment slide" -->
+* Currying / Partial Application <!-- .element: class="fragment slide" -->
+* Recursion / Tail Call Optimization <!-- .element: class="fragment slide" -->
+
+Note:
+
+    - **First Class functions**: Functions as values that can be stored, passed as arguments and created/returned  from functions.
+    - **Higher Order Functions**:  Functions that can accept functions as arguments and/or return a function.
+    - **No Side Effects**: Function that does something other than returning a value.
+    - **Pure functions**: Functions that has no side effects.
+    - **Referential Transparency**: For a given sets of arguments, the same code should always output the same value, only by changing arguments can an output value be different.
+    - **Immutability**: Inability for variables to change their value once created. All things created stay constant.
+    - **Currying / Partial Application**: Ability of a function to return a new function until it receives all it’s arguments Calling a curried function only some of its arguments is called partial application.
+    - **Recursion**: Iteration in functional languages is usually accomplished via recursion. Recursive functions invoke themselves, allowing an operation to be performed over and over until the base case is reached.
+    - **Tail Call Optimization**: Ability to avoid allocation a new stack frame for a function call. Most commonly is a tail-recursion, where a recursive function uses constant stack space
+
+
+--
+### Native Supports
+
+* First Class Functions
+* Higher Order Functions
+* Pure functions
+* Referential Transparency
+* Closures / Lambdas
+
+
+--
+## No direct supports
+(libraries and discipline)
+
+* Immutability
+* No Side Effects
+* Currying / Partial application
+* Recursion / Tail-call Optimization (ES7?)
+
+--
+## No support
+* Pattern matching
+* Lazy Evaluation
+
+
+    </script>
+</div>

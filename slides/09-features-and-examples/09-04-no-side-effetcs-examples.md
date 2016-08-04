@@ -1,27 +1,17 @@
 #### No Side Effects
 
 ```js
-var a = 0;
-
-var incA = function() {
-  a = a+1; // state changing? (╯°□°）╯︵ ┻━┻ 
-  return a;
+let a = 0
+const incA = () => {
+  a = a+1 // state changing?  (╯°□°）╯︵ ┻━┻ 
+  return a
 }
+console.log(incA(), incA()) // 1, 2
 
-var testA = function() {
-  if (a<3) {  // also side effect, reading from environment
-    return null;
-  }
-  return a;
-}
-
-console.log( incA(), incA() ); // 1, 2
-console.log( testA() ); // null
+const testA = () => (a < 3) ? null : a  // side effect: reading from environment
+console.log(testA()) // null
 ```
 ```js
-function seenEverywhere() {
-  alert('This is also a side effect');
-}
-console.log( seenEverywhere() );
-
+const usedEverywhere = () => alert('This is also a side effect')
+console.log(usedEverywhere())
 ```

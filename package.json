@@ -8,6 +8,6 @@
     "print": "prez --print --no-open-browser"
   },
   "dependencies": {
-    "prez": "^4.5.0"
+    "prez": "4.7.0"
   }
 }

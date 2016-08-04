@@ -1,0 +1,152 @@
+<div data-markdown
+     data-separator="^\n--\n"
+     data-separator-notes="^Note:"
+     data-attributes="--\s(.*?)$"
+     data-charset="utf-8">
+    <script type="text/template">
+## A bit of history
+
+Note:
+
+--
+#### Lambda calculus
+
+Every functional programming languages has its roots in **lambda calculus** developed by Alonzo Church in the 1930s.
+
+
+Note:
+
+* provides a theoretical framework for describing functions and their evaluation.
+* Though it is a mathematical abstraction rather than a programming language,
+* lambda calculus forms the basis of almost all functional programming languages today.
+
+--
+
+#### In the 40s
+
+> Limited speed and memory capacity forced programmers to write hand tuned **assembly language programs**.
+> It required a great deal of intellectual effort and was error-prone.
+
+Note:
+
+intellectual effort and was error-prone: Can we overcome that?
+
+--
+
+#### In the 50s & 60s: First programming languages
+
+* 1956 – FORTRAN (First compiler)
+* 1958 – LISP / ALGOL
+* 1959 – COBOL
+* 1964 – Simula / BASIC
+* 1968 – Logo
+> The 50s brought the firts high level languages.
+
+Note:
+* Fortran
+- first widely used programming language. By Jhon Backus
+* LISP (multiparadigm) by John McCarthy
+- Introduces garbage collection
+- early functional-flavored programming language
+- introduced many of the features of modern FP languages
+
+--
+#### The 70s: establishing fundamental paradigms
+
+* 1970 – Pascal
+* 1971 - sh
+* 1972 – C / Smalltalk / Prolog
+* 1973 – ML
+* 1975 – Scheme
+* 1978 – SQL
+> The 60s & 70s brought a major flowering of programming languages.
+> Most of the major language paradigms now in use were invented in this period.
+
+Note:
+
+* Unix/C
+    - widespread usage of "function syntax" to denote procedural semantics.
+* ML (Meta Language) by Milner
+    - implemented in LISP ( to proof theorem)
+    - combines pattern matching and recursion
+    -  polymorphic type system
+* Scheme by Steele and Sussman
+    - a LISP interpreter
+    - tail-call optimization
+    - strong support for recursive algorithms
+    - support first-class continuations
+    - almost got implemented by Netscape in the browser
+* John Backus Turing Award and lecture
+    - "Can Programming Be Liberated From the von Neumann Style? A Functional Style and its Algebra of Programs"
+    - mentions "combining forms" that allow an "algebra of programs"
+    - popularized research into functional programming
+* time for debate over the merits of "structured programming", programming without the use of GOTO.
+
+--
+#### The 80s: Modularization and performance
+
+Consolidation, modules, performance. Winning of imperative languages.
+
+* 1980 – C++ (C with classes)
+* 1984 – Common Lisp
+* 1985 - Miranda
+* 1986 – Objective-C / Erlang
+* 1987 – Perl / Caml
+
+> The 80s were the years of relative consolidation in imperative languages.
+> Rather than inventing new paradigms, all elaborated upon the ideas previously invented. Also brought better implementations.
+
+Note:
+* 70s & 80s: More functional languages created at universities from different research
+* Miranda
+    - Lazy evaluation, pure functional
+* Erlang
+    - desirable features of Lisp and Prolog but with concurrency and error recovery built-in
+* Constructs used by FP languages performed worse than their imperative counterparts.
+* In a time when CPU power was scarce, imperative counterparts won.
+
+--
+#### The 90s: The Internet age
+
+* 1990 – Haskell
+* 1991 – Python / Visual Basic
+* 1995 – JavaScript / Java / PHP
+
+> Internet created an opportunity for new languages to be adopted. In particular, the JavaScript programming language rose to popularity due to browsers integration.
+
+> The 90s saw **no fundamental novelty in imperative languages**   , but much recombination and maturation of old ideas. This era began the slow spread of functional languages.
+
+Note:
+
+* Haskell
+- designed by a committee
+- tries to standarize a docens of FP languages. (late 80s)
+- attempt to gather together many ideas in FP research.
+
+--
+#### The new century
+
+* 2000 – ActionScript (Flash!)
+* 2001 – C# / Visual Basic .NET
+* 2003 – Groovy / Scala
+* 2005 – F#
+* 2007 – Clojure / LINQ
+
+--
+#### Trends
+
+> The current trends are closing the gap of functional programming to mainstream languages. The search to support concurrent and distributed programs will make this gap smaller, including pure functional language to the mainstream.
+
+[A complete map of programming languages](http://archive.oreilly.com/pub/a/oreilly//news/languageposter_0504.html)
+
+
+Note:
+
+* A trend towards FP, or at least certain aspects of it.
+- anonymous functions: C++11, PHP 5.3.0, C# v2.0, Java 8
+* Groovy
+- object-oriented language, also offers functional features
+
+
+    </script>
+</div>

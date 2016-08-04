@@ -2,10 +2,10 @@
 
 ```js
 var onReady = function() {
-  $('#info').html('...');
+  $('#info').html('...')
 }
 
-$(onReady); 
+$(onReady)
 ```
 
 #### As object properties
@@ -18,6 +18,6 @@ var myObj = {
   doImportanStuff: function() {
     //... important code
   }
-};
+}
 
 ```

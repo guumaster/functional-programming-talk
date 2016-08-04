@@ -1,1 +1,15 @@
 /* custom styles can go here */
+.reveal pre code {
+    background: #414141;
+    color: #DCDCDC;
+    font-size: 0.9em;
+    line-height: 0.96em;
+}
+
+.reveal blockquote {
+    width: 85%;
+    font-size: 0.9em;
+}
+.reveal ul li {
+    line-height: 0.9em;
+}
