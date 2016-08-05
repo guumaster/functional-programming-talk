@@ -1,0 +1,1763 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>IntroductionToFunctionalProgramming</title>
+
+    <meta name="description" content="A brief introduction to functional programming with JavaScript">
+    <meta name="author" content="Gustavo Marin @guumaster">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="css/highlight/styles/zenburn.css" id="highlight-theme">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <link rel="stylesheet" href="css/custom.css">
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides"><section id="intro" class="slide" data-has-notes="false">
+<h1>Functional Programming</h1><p>&nbsp;</p>
+<h3>An introduction by <a href="http://twitter.com/@guumaster">@guumaster</a></h3>
+</section>
+
+<section id="agenda" class="slide" data-has-notes="false">
+<div data-markdown
+
+     data-separator="^\n\s*--\s*\n"
+
+     data-separator-vertical="^\n\n"
+
+         data-separator-notes="^Note:"
+
+         data-attributes="--\s(.*?)$"
+
+         data-charset="utf-8">
+
+    <script type="text/template">
+
+## Agenda
+
+* What is it? Why use it? <!-- .element: class="fragment slide" -->
+
+* Definitions / History <!-- .element: class="fragment slide" -->
+
+* Declarative vs Imperative paradigms <!-- .element: class="fragment slide" -->
+
+* Differences with OOP <!-- .element: class="fragment slide" -->
+
+* JavaScript as a functional language <!-- .element: class="fragment slide"  -->
+
+* Code Examples! <!-- .element: class="fragment slide"  -->
+
+
+
+    </script>
+
+</div>
+</section>
+
+<section id="what-is-it" class="slide" data-has-notes="true">
+<div data-markdown
+
+     data-separator="^\n--\n"
+
+     data-separator-notes="^Note:"
+
+     data-attributes="--\s(.*?)$"
+
+     data-charset="utf-8">
+
+<script type="text/template">
+
+## What is it? Why use it?
+
+
+
+--
+
+## Definitions
+
+
+
+There are multiple points of views of what functional programming is. Lets see some definitions.
+
+
+
+--
+
+## From Wikipedia
+
+
+
+> Is a programming paradigm that treats computation as the evaluation of mathematical functions and **avoids changing-state and mutable data**.  It is a **declarative programming style**, which means programming is done with expressions, in contrast with **imperative programming style**, which emphasizes changes in state and the execution of sequential commands. - [Wikipedia](https://en.wikipedia.org/wiki/Functional_programming)
+
+
+
+--
+
+## From the internets
+
+
+
+> Functional programming **emphasizes the use functions**. Its main purpose is to abstract control flow and operations on data with functions in order to avoid side effects and reduce mutation of state in your code.
+
+
+
+--
+
+## From Uncle Bob
+
+
+
+> Functional programming is programming without assignment statements. [Uncle Bob]
+
+
+
+[Uncle Bob]: http://blog.8thlight.com/uncle-bob/2012/12/22/FPBE1-Whats-it-all-about.html
+
+
+
+
+
+Note:
+
+​
+
+Assign statement
+
+- Introduces concept of time
+
+- Separate the code before and after in time
+
+- If there is no assignment statement, no variable change state, and there is no side effects
+
+
+
+--
+
+## Simple definition
+
+
+
+> A combination of techniques that - when used together - allows you to limit state changes to as few places as possible and make them explicit.
+
+
+
+> *"Functional"* is a way of thinking, more than a tool set.
+
+
+
+</script>
+
+</div>
+</section>
+
+<section id="why" class="slide" data-has-notes="true">
+<div data-markdown
+
+     data-separator="^\n--\n"
+
+     data-separator-notes="^Note:"
+
+     data-attributes="--\s(.*?)$"
+
+     data-charset="utf-8">
+
+    <script type="text/template">
+
+## Why to use functional programming?
+
+
+
+- programs keep increasing complexity. <!-- .element: class="fragment slide" -->
+
+- we need more expressive code. <!-- .element: class="fragment slide" -->
+
+- we need easier code to reason about, debug and understand. <!-- .element: class="fragment slide" -->
+
+
+
+--
+
+## But remember that
+
+
+
+> Functional programming isn’t the goal, the goal is to simplify complexity.
+
+
+
+Note:
+
+
+
+The only way we’ll be able to keep up with the exponentially increasing complexity will be to decrease the complexity of understanding programs.
+
+
+
+To maintain the goliath apps of tomorrow, we must learn to build more expressive code.
+
+
+
+--
+
+## Why to use functional programming?
+
+
+
+Moore's law may be ending
+
+
+
+![Moore's law ending](images/moores_law.png) <!-- .element: class="fragment slide" -->
+
+
+
+Note:
+
+
+
+- Speed of clock rate processor can't coup
+
+- Transistors will top soon too. (20nanometers)
+
+- Solution: add more cores
+
+- functional is safer, but is more memory heavy. In the beginning memory was expensive, but is getting cheaper.
+
+
+
+--
+
+## Why to use functional programming?
+
+### Benefits
+
+
+
+- Write less code <!-- .element: class="fragment slide" -->
+
+- Fewer errors <!-- .element: class="fragment slide" -->
+
+- Better Testability <!-- .element: class="fragment slide" -->
+
+- Better Readability <!-- .element: class="fragment slide" -->
+
+- Favors Concurrency <!-- .element: class="fragment slide" -->
+
+
+
+Note:
+
+
+
+*more on this later*
+
+
+
+- FP languages emphasise immutability, which has enormous benefits for concurrent applications than need to run effectively on multiple cores.
+
+
+
+- the raise of multi-core processor asks for concurrency. And functional languages are good at it.
+
+
+
+
+
+    </script>
+
+</div>
+</section>
+
+<section id="history" class="slide" data-has-notes="true">
+<div data-markdown
+
+     data-separator="^\n--\n"
+
+     data-separator-notes="^Note:"
+
+     data-attributes="--\s(.*?)$"
+
+     data-charset="utf-8">
+
+    <script type="text/template">
+
+## A bit of history
+
+
+
+Note:
+
+
+
+--
+
+#### Lambda calculus
+
+
+
+Every functional programming languages has its roots in **lambda calculus** developed by Alonzo Church in the 1930s.
+
+
+
+
+
+Note:
+
+
+
+* provides a theoretical framework for describing functions and their evaluation.
+
+* Though it is a mathematical abstraction rather than a programming language,
+
+* lambda calculus forms the basis of almost all functional programming languages today.
+
+
+
+--
+
+
+
+#### In the 40s
+
+
+
+> Limited speed and memory capacity forced programmers to write hand tuned **assembly language programs**.
+
+> It required a great deal of intellectual effort and was error-prone.
+
+
+
+Note:
+
+
+
+intellectual effort and was error-prone: Can we overcome that?
+
+
+
+--
+
+
+
+#### In the 50s & 60s: First programming languages
+
+
+
+* 1956 – FORTRAN (First compiler)
+
+* 1958 – LISP / ALGOL
+
+* 1959 – COBOL
+
+* 1964 – Simula / BASIC
+
+* 1968 – Logo
+
+> The 50s brought the firts high level languages.
+
+
+
+Note:
+
+* Fortran
+
+- first widely used programming language. By Jhon Backus
+
+* LISP (multiparadigm) by John McCarthy
+
+- Introduces garbage collection
+
+- early functional-flavored programming language
+
+- introduced many of the features of modern FP languages
+
+
+
+--
+
+#### The 70s: establishing fundamental paradigms
+
+
+
+* 1970 – Pascal
+
+* 1971 - sh
+
+* 1972 – C / Smalltalk / Prolog
+
+* 1973 – ML
+
+* 1975 – Scheme
+
+* 1978 – SQL
+
+> The 60s & 70s brought a major flowering of programming languages.
+
+> Most of the major language paradigms now in use were invented in this period.
+
+
+
+Note:
+
+
+
+* Unix/C
+
+    - widespread usage of "function syntax" to denote procedural semantics.
+
+* ML (Meta Language) by Milner
+
+    - implemented in LISP ( to proof theorem)
+
+    - combines pattern matching and recursion
+
+    -  polymorphic type system
+
+* Scheme by Steele and Sussman
+
+    - a LISP interpreter
+
+    - tail-call optimization
+
+    - strong support for recursive algorithms
+
+    - support first-class continuations
+
+    - almost got implemented by Netscape in the browser
+
+* John Backus Turing Award and lecture
+
+    - "Can Programming Be Liberated From the von Neumann Style? A Functional Style and its Algebra of Programs"
+
+    - mentions "combining forms" that allow an "algebra of programs"
+
+    - popularized research into functional programming
+
+* time for debate over the merits of "structured programming", programming without the use of GOTO.
+
+
+
+--
+
+#### The 80s: Modularization and performance
+
+
+
+Consolidation, modules, performance. Winning of imperative languages.
+
+
+
+* 1980 – C++ (C with classes)
+
+* 1984 – Common Lisp
+
+* 1985 - Miranda
+
+* 1986 – Objective-C / Erlang
+
+* 1987 – Perl / Caml
+
+
+
+> The 80s were the years of relative consolidation in imperative languages.
+
+> Rather than inventing new paradigms, all elaborated upon the ideas previously invented. Also brought better implementations.
+
+
+
+Note:
+
+* 70s & 80s: More functional languages created at universities from different research
+
+* Miranda
+
+    - Lazy evaluation, pure functional
+
+* Erlang
+
+    - desirable features of Lisp and Prolog but with concurrency and error recovery built-in
+
+* Constructs used by FP languages performed worse than their imperative counterparts.
+
+* In a time when CPU power was scarce, imperative counterparts won.
+
+
+
+--
+
+#### The 90s: The Internet age
+
+
+
+* 1990 – Haskell
+
+* 1991 – Python / Visual Basic
+
+* 1995 – JavaScript / Java / PHP
+
+
+
+> Internet created an opportunity for new languages to be adopted. In particular, the JavaScript programming language rose to popularity due to browsers integration.
+
+
+
+> The 90s saw **no fundamental novelty in imperative languages**   , but much recombination and maturation of old ideas. This era began the slow spread of functional languages.
+
+
+
+Note:
+
+
+
+* Haskell
+
+- designed by a committee
+
+- tries to standarize a docens of FP languages. (late 80s)
+
+- attempt to gather together many ideas in FP research.
+
+
+
+--
+
+#### The new century
+
+
+
+* 2000 – ActionScript (Flash!)
+
+* 2001 – C# / Visual Basic .NET
+
+* 2003 – Groovy / Scala
+
+* 2005 – F#
+
+* 2007 – Clojure / LINQ
+
+
+
+--
+
+#### Trends
+
+
+
+> The current trends are closing the gap of functional programming to mainstream languages. The search to support concurrent and distributed programs will make this gap smaller, including pure functional language to the mainstream.
+
+
+
+[A complete map of programming languages](http://archive.oreilly.com/pub/a/oreilly//news/languageposter_0504.html)
+
+
+
+
+
+Note:
+
+
+
+* A trend towards FP, or at least certain aspects of it.
+
+- anonymous functions: C++11, PHP 5.3.0, C# v2.0, Java 8
+
+* Groovy
+
+- object-oriented language, also offers functional features
+
+
+
+
+
+    </script>
+
+</div>
+</section>
+
+<section id="declarative-imperative" class="slide" data-has-notes="true">
+<div data-markdown
+
+     data-separator="^\n--\n"
+
+     data-separator-notes="^Note:"
+
+     data-attributes="--\s(.*?)$"
+
+     data-charset="utf-8">
+
+    <script type="text/template">
+
+## Declarative vs Imperative
+
+
+
+--
+
+
+
+## Imperative
+
+
+
+> **Imperative programming** is telling explicitly to the system **how** to do something step by step.
+
+
+
+Note:
+
+
+
+- Imperative programming uses statements that change a program's state.
+
+
+
+- We are used to the imperative paradigm.
+
+- It's what all of us have been taught while learning to code
+
+- is the reason why this style is still dominant in modern programming languages.
+
+- software become more complex, we need to write safe, understandable and scalable code
+
+
+
+--
+
+
+
+## Declarative
+
+
+
+> **Declarative programming** is telling the system **what** you would like to happen, without instructing it how to do it.
+
+
+
+
+
+Note:
+
+
+
+- Declarative programming
+
+    - an umbrella term that includes a number of better-known programming paradigms.
+
+    - discourages usage of variables in favor of function composition or pipelines.
+
+    - It has a more clear correspondence to mathematical logic.
+
+
+
+--
+
+#### The *troll* version
+
+
+
+> Declarative programming is describing a problem like a mathematician. Imperative programming is like giving instructions to an idiot. - *a Scheme programmer*
+
+
+
+
+
+
+
+    </script>
+
+</div>
+</section>
+
+<section id="imperative-code" class="slide" data-has-notes="false">
+<h4>Imperative code</h4><pre><code class="lang-js">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sumOfSquares</span>(<span class="hljs-params">list</span>) </span>{
+
+    <span class="hljs-keyword">let</span> result = <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; list.length; i++) {
+
+        result += square(list[i])
+
+    }
+
+    <span class="hljs-keyword">return</span> result
+
+}
+
+
+
+<span class="hljs-built_in">console</span>.log(sumOfSquares([<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>]))
+</code></pre>
+</section>
+
+<section id="declarative-code" class="slide" data-has-notes="true">
+<h4>Declarative code</h4><pre><code class="lang-js">
+<span class="hljs-keyword">let</span> square = x =&gt; x * x
+
+<span class="hljs-keyword">let</span> sum = (a, b) =&gt; a + b
+
+
+
+<span class="hljs-comment">// with map/compose tools:</span>
+
+<span class="hljs-keyword">let</span> sumOfSquares = compose(map(square), sum)
+
+
+
+<span class="hljs-built_in">console</span>.log(sumOfSquares([<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>]))
+</code></pre>
+</section>
+
+<section id="differences-oop" class="slide" data-has-notes="true">
+<div data-markdown
+
+     data-separator="^\n--\n"
+
+     data-separator-notes="^Note:"
+
+     data-attributes="--\s(.*?)$"
+
+     data-charset="utf-8">
+
+    <script type="text/template">
+
+## Differences with OOP
+
+
+
+--
+
+#### Object Oriented programming
+
+
+
+* Data and the operations upon it are tightly coupled.
+
+* An object owns its data and it owns the implementation of the operations on the data.
+
+* Hides operations from other objects via its interfaces.
+
+* **The central activity is composing new objects and extending existing objects with new methods**.
+
+
+
+--
+
+#### Functional programming
+
+
+
+* Data is only loosely coupled to functions.
+
+* You can write different operations on the same data structure
+
+* The central model for abstraction is the function, not the data structure.
+
+* Functions hide their implementation
+
+* **Central activity in FP is writing new functions**.
+
+
+
+--
+
+#### Simple put
+
+
+
+> -- OOP makes code understandable by **encapsulating moving parts**
+
+> -- FP makes code understandable by **minimizing moving parts**
+
+*by Michael Feathers*
+
+
+
+
+
+--
+
+## They can co-exists
+
+
+
+- Same levels of expressiveness. <!-- .element: class="fragment slide" -->
+
+- Similar abilities to encapsulate programs into smaller parts. <!-- .element: class="fragment slide" -->
+
+- Parts that can be combined and recombined. <!-- .element: class="fragment slide" -->
+
+- The main difference is the relationship between data and operations on the data. <!-- .element: class="fragment slide" -->
+
+- OOP excels at composing data. FP excels at composing logic. <!-- .element: class="fragment slide" -->
+
+- JavaScript is as functional as it is object-oriented; and both are useful for implementing applications. <!-- .element: class="fragment slide" -->
+
+- Functional programming and object-oriented programming are not mutually exclusive and can be used simultaneously. <!-- .element: class="fragment slide" -->
+
+
+
+Note:
+
+
+
+- JavaScript allows a variety of different programming paradigms:
+
+    * OO / functional / procedural
+
+
+
+- Is not a *pure* functional programming language, but it allows us to program in a functional way
+
+- You can use both, OO and FP, in a mixed paradigm. Just try not to change state, use immutable objects
+
+
+
+    </script>
+
+</div>
+</section>
+
+<section id="chapter-superfast-es6" class="chapter">
+<section id="superfast-es6-intro" class="slide" data-has-notes="false">
+<h2>A <em>superfast</em> review of ES2015 features</h2>
+</section>
+
+<section id="superfast-es6-let-const" class="slide" data-has-notes="true">
+<h4>let/cosnt</h4><pre><code class="lang-js">
+<span class="hljs-comment">// don't use var anymore</span>
+
+<span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>
+
+
+
+<span class="hljs-comment">// use let or const</span>
+
+<span class="hljs-keyword">let</span> x = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">const</span> FIXED = <span class="hljs-number">42</span>
+</code></pre><aside class="notes"><ul>
+<li>an object can be declared as const, but it only protects re-assigment of the object reference, not its content</li>
+</ul></aside>
+</section>
+
+<section id="superfast-es6-arrow-function" class="slide" data-has-notes="false">
+<h4>arrow function</h4><pre><code class="lang-js">
+<span class="hljs-comment">// in ES6</span>
+
+<span class="hljs-keyword">let</span> idem = a =&gt; a
+
+<span class="hljs-keyword">let</span> odds  = evens.map(v =&gt; v + <span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">let</span> pairs = evens.map(v =&gt; ({ even: v, odd: v + <span class="hljs-number">1</span> }))
+
+<span class="hljs-keyword">let</span> nums  = evens.map((v, i) =&gt; v + i)
+</code></pre>
+<pre><code class="lang-js">
+<span class="hljs-comment">// in ES5</span>
+
+<span class="hljs-keyword">var</span> idem = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a</span>) </span>{ <span class="hljs-keyword">return</span> a }
+
+<span class="hljs-keyword">var</span> odds  = evens.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">v</span>) </span>{ <span class="hljs-keyword">return</span> v + <span class="hljs-number">1</span> }) 
+
+<span class="hljs-keyword">var</span> pairs = evens.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">v</span>) </span>{ <span class="hljs-keyword">return</span> { even: v, odd: v + <span class="hljs-number">1</span> } })
+
+<span class="hljs-keyword">var</span> nums = evens.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">v, i</span>) </span>{ <span class="hljs-keyword">return</span> v + i })
+</code></pre>
+</section>
+
+<section id="superfast-es6-parameters" class="slide" data-has-notes="false">
+<h4>Parameter handling</h4><pre><code class="lang-js">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span> (<span class="hljs-params">x, y = 7, z = 42</span>) </span>{
+
+ <span class="hljs-keyword">return</span> x + y + z
+
+}
+
+<span class="hljs-built_in">console</span>.log(f(<span class="hljs-number">1</span>)) <span class="hljs-comment">// 50</span>
+</code></pre>
+<pre><code class="lang-js">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params">x, y, ...a</span>) </span>{
+
+ <span class="hljs-keyword">return</span> (x + y) * a.length 
+
+}
+
+<span class="hljs-built_in">console</span>.log(f(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-string">"hello"</span>, <span class="hljs-literal">true</span>, <span class="hljs-number">7</span>)) <span class="hljs-comment">// 9</span>
+</code></pre>
+<pre><code class="lang-js">
+<span class="hljs-keyword">let</span> params = [ <span class="hljs-string">"hello"</span>, <span class="hljs-literal">true</span>, <span class="hljs-number">7</span> ]
+
+<span class="hljs-keyword">let</span> other = [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, ...params ] <span class="hljs-comment">// =&gt; [ 1, 2, "hello", true, 7 ]</span>
+
+
+
+<span class="hljs-built_in">console</span>.log(f(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, ...params)) <span class="hljs-comment">// 9 </span>
+
+<span class="hljs-keyword">let</span> str = <span class="hljs-string">"foo"</span>
+
+<span class="hljs-keyword">let</span> chars = [ ...str ] <span class="hljs-comment">// [ "f", "o", "o" ]</span>
+</code></pre>
+</section>
+
+<section id="superfast-es6-object-literals" class="slide" data-has-notes="false">
+<h4>Object literals</h4><pre><code class="lang-js">
+<span class="hljs-keyword">const</span> x = <span class="hljs-number">100</span>
+
+<span class="hljs-keyword">const</span> y = <span class="hljs-number">200</span>
+
+<span class="hljs-keyword">let</span> obj = { x, y }
+
+<span class="hljs-built_in">console</span>.log(obj) <span class="hljs-comment">// { x: 100, y: 200 }</span>
+</code></pre>
+<pre><code class="lang-js">
+<span class="hljs-keyword">let</span> zap = () =&gt; <span class="hljs-string">'bar'</span>
+
+
+
+<span class="hljs-keyword">let</span> obj = { 
+
+  check (a, b) { <span class="hljs-comment">/* function code */</span> },
+
+  foo: <span class="hljs-string">"bar"</span>,
+
+  [ <span class="hljs-string">"prop_"</span> + zap() ]: <span class="hljs-number">42</span> 
+
+}
+
+
+
+<span class="hljs-built_in">console</span>.log(obj) <span class="hljs-comment">// { "foo": "bar", "prop_bar": 42, "check": [Function] }</span>
+</code></pre>
+</section>
+
+<section id="superfast-es6-string-literal" class="slide" data-has-notes="false">
+<h4>String literals</h4><pre><code class="lang-js">
+<span class="hljs-keyword">let</span> name = <span class="hljs-string">'Jhon Snow'</span>
+
+
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`You know nothing, <span class="hljs-subst">${name}</span>`</span>)
+</code></pre>
+<pre><code class="lang-js">
+<span class="hljs-keyword">let</span> customer = { name: <span class="hljs-string">'Foo'</span> }
+
+<span class="hljs-keyword">let</span> card = { amount: <span class="hljs-number">7</span>, product: <span class="hljs-string">'Bar'</span>, unitprice: <span class="hljs-number">42</span> }
+
+
+
+<span class="hljs-keyword">let</span> message = <span class="hljs-string">`Hello <span class="hljs-subst">${customer.name}</span>,
+
+  want to buy <span class="hljs-subst">${card.amount}</span> <span class="hljs-subst">${card.product}</span> for
+
+  a total of <span class="hljs-subst">${card.amount * card.unitprice}</span> bucks?`</span>
+
+
+
+<span class="hljs-built_in">console</span>.log(message)
+</code></pre>
+</section>
+
+<section id="superfast-es6-more" class="slide" data-has-notes="false">
+<h2>Congrats!</h2><h3>Now you are a ES2015 programmer</h3><p><img src="images/wayne.gif" alt=""></p>
+<p><a href="http://es6-features.org/">Learn more</a></p>
+</section>
+</section>
+
+<section id="features" class="slide" data-has-notes="true">
+<div data-markdown
+
+     data-separator="^\n--\n"
+
+     data-separator-notes="^Note:"
+
+     data-attributes="--\s(.*?)$"
+
+     data-charset="utf-8">
+
+    <script type="text/template">
+
+## Javascript as a functional language
+
+
+
+--
+
+
+
+## Functional language features
+
+
+
+* First Class functions <!-- .element: class="fragment slide" -->
+
+* Higher Order Functions <!-- .element: class="fragment slide" -->
+
+* No Side Effects<!-- .element: class="fragment slide" -->
+
+* Pure functions <!-- .element: class="fragment slide" -->
+
+* Referential Transparency <!-- .element: class="fragment slide" -->
+
+* Immutability <!-- .element: class="fragment slide" -->
+
+* Currying / Partial Application <!-- .element: class="fragment slide" -->
+
+* Recursion / Tail Call Optimization <!-- .element: class="fragment slide" -->
+
+
+
+Note:
+
+
+
+    - **First Class functions**: Functions as values that can be stored, passed as arguments and created/returned  from functions.
+
+    - **Higher Order Functions**:  Functions that can accept functions as arguments and/or return a function.
+
+    - **No Side Effects**: Function that does something other than returning a value.
+
+    - **Pure functions**: Functions that has no side effects.
+
+    - **Referential Transparency**: For a given sets of arguments, the same code should always output the same value, only by changing arguments can an output value be different.
+
+    - **Immutability**: Inability for variables to change their value once created. All things created stay constant.
+
+    - **Currying / Partial Application**: Ability of a function to return a new function until it receives all it’s arguments Calling a curried function only some of its arguments is called partial application.
+
+    - **Recursion**: Iteration in functional languages is usually accomplished via recursion. Recursive functions invoke themselves, allowing an operation to be performed over and over until the base case is reached.
+
+    - **Tail Call Optimization**: Ability to avoid allocation a new stack frame for a function call. Most commonly is a tail-recursion, where a recursive function uses constant stack space
+
+
+
+
+
+--
+
+### Native Supports
+
+
+
+* First Class Functions
+
+* Higher Order Functions
+
+* Pure functions
+
+* Referential Transparency
+
+* Closures / Lambdas
+
+
+
+
+
+--
+
+## No direct supports
+
+(libraries and discipline)
+
+
+
+* Immutability
+
+* No Side Effects
+
+* Currying / Partial application
+
+* Recursion / Tail-call Optimization (ES7?)
+
+
+
+--
+
+## No support
+
+* Pattern matching
+
+* Lazy Evaluation
+
+
+
+
+
+    </script>
+
+</div>
+</section>
+
+<section id="chapter-features-and-examples" class="chapter">
+<section id="features-and-examples-intro" class="slide" data-has-notes="false">
+<h2>FP explained in JavaScript</h2>
+</section>
+
+<section id="features-and-examples-02a-first-class-definition" class="slide" data-center="false" data-has-notes="false">
+<h2>First class functions</h2><blockquote>
+<p>Functions as values that can be stored, passed as arguments and created/returned from functions.</p>
+</blockquote>
+</section>
+
+<section id="features-and-examples-02b-first-class-examples" class="slide" data-center="false" data-has-notes="false">
+<h2>First class functions</h2><pre><code class="lang-js">
+<span class="hljs-comment">// a function expression stored in a variable</span>
+
+<span class="hljs-keyword">const</span> double = (a) =&gt; a * <span class="hljs-number">2</span>
+
+
+
+<span class="hljs-built_in">console</span>.log(double(<span class="hljs-number">3</span>)) <span class="hljs-comment">// 6</span>
+</code></pre>
+<pre><code class="lang-js">
+<span class="hljs-comment">// a function as a returned value</span>
+
+<span class="hljs-keyword">const</span> createSomeFunction = () =&gt; (a) =&gt; (a * a) - a 
+
+
+
+<span class="hljs-keyword">const</span> sameVal = createSomeFunction()
+
+
+
+sameVal(<span class="hljs-number">1</span>) <span class="hljs-comment">// 0</span>
+
+sameVal(<span class="hljs-number">2</span>) <span class="hljs-comment">// 2</span>
+
+sameVal(<span class="hljs-number">3</span>) <span class="hljs-comment">// 6</span>
+</code></pre>
+</section>
+
+<section id="features-and-examples-02c-first-class-examples-more" class="slide" data-has-notes="false">
+<h4>In the browser</h4><pre><code class="lang-js">
+<span class="hljs-keyword">var</span> onReady = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+  $(<span class="hljs-string">'#info'</span>).html(<span class="hljs-string">'...'</span>)
+
+}
+
+
+
+$(onReady)
+</code></pre>
+<h4>As object properties</h4><pre><code class="lang-js">
+<span class="hljs-keyword">var</span> myObj = {
+
+  doSomething: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+     <span class="hljs-comment">//...code code code</span>
+
+  }, 
+
+  doImportanStuff: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+    <span class="hljs-comment">//... important code</span>
+
+  }
+
+}
+</code></pre>
+</section>
+
+<section id="features-and-examples-03a-higher-order-definition" class="slide" data-has-notes="true">
+<h4>Higher Order Functions</h4><blockquote>
+<p>Functions that can accept functions as arguments and/or return a function</p>
+</blockquote><aside class="notes"><p>Higher-order functions are closely related to first-class functions, in that higher-order functions and first-class functions both allow functions as arguments and results of other functions.</p></aside>
+</section>
+
+<section id="features-and-examples-03b-higher-order-examples" class="slide" data-has-notes="false">
+<h4>Higher Order Functions</h4><pre><code class="lang-js">
+<span class="hljs-built_in">document</span>
+
+    .getElementById(<span class="hljs-string">"clicker"</span>)
+
+    .addEventListener(<span class="hljs-string">"click"</span>, () =&gt; alert(<span class="hljs-string">"you've clicked the clicker"</span>))
+</code></pre>
+<pre><code class="lang-js">
+<span class="hljs-keyword">const</span> addMood = (mood) =&gt; (str) =&gt; <span class="hljs-string">`<span class="hljs-subst">${str}</span>, <span class="hljs-subst">${mood}</span>`</span>
+
+
+
+<span class="hljs-keyword">const</span> happy = addMood(<span class="hljs-string">" and I'm happy!"</span>)
+
+<span class="hljs-keyword">const</span> sad = addMood(<span class="hljs-string">" and I'm sad"</span>)
+
+
+
+<span class="hljs-built_in">console</span>.log(happy(<span class="hljs-string">'My name is Earl'</span>)) <span class="hljs-comment">// My name is Earl, and I'm happy</span>
+
+<span class="hljs-built_in">console</span>.log(sad(<span class="hljs-string">'I have to work'</span>))    <span class="hljs-comment">// I have to work, and I'm sad</span>
+</code></pre>
+</section>
+
+<section id="features-and-examples-03c-higher-order-examples-more" class="slide" data-has-notes="false">
+<h4>In Node</h4><pre><code class="lang-js">
+fs.readFile(<span class="hljs-string">'/etc/passwd'</span>, (err, data) =&gt; {
+
+  <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err
+
+  <span class="hljs-built_in">console</span>.log(data)
+
+})
+</code></pre>
+<h4>Array methods</h4><pre><code class="lang-js">
+<span class="hljs-keyword">const</span> data = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+
+<span class="hljs-keyword">const</span> reducerFn = (a, b) =&gt; a + b
+
+<span class="hljs-keyword">const</span> result = data.reduce(reducerFn, <span class="hljs-number">0</span>)
+
+
+
+<span class="hljs-built_in">console</span>.log(result) <span class="hljs-comment">// 15</span>
+</code></pre>
+</section>
+
+<section id="features-and-examples-no-side-effetcs-definition" class="slide" data-has-notes="true">
+<h4>No Side Effects</h4><blockquote>
+<p>Function that does something other than returning a value.</p>
+</blockquote>
+</section>
+
+<section id="features-and-examples-no-side-effetcs-examples" class="slide" data-has-notes="false">
+<h4>No Side Effects</h4><pre><code class="lang-js">
+<span class="hljs-keyword">let</span> a = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">const</span> incA = () =&gt; {
+
+  a = a+<span class="hljs-number">1</span> <span class="hljs-comment">// state changing?  (╯°□°）╯︵ ┻━┻ </span>
+
+  <span class="hljs-keyword">return</span> a
+
+}
+
+<span class="hljs-built_in">console</span>.log(incA(), incA()) <span class="hljs-comment">// 1, 2</span>
+
+
+
+<span class="hljs-keyword">const</span> testA = () =&gt; (a &lt; <span class="hljs-number">3</span>) ? <span class="hljs-literal">null</span> : a  <span class="hljs-comment">// side effect: reading from environment</span>
+
+<span class="hljs-built_in">console</span>.log(testA()) <span class="hljs-comment">// null</span>
+</code></pre>
+<pre><code class="lang-js">
+<span class="hljs-keyword">const</span> usedEverywhere = () =&gt; alert(<span class="hljs-string">'This is also a side effect'</span>)
+
+<span class="hljs-built_in">console</span>.log(usedEverywhere())
+</code></pre>
+</section>
+
+<section id="features-and-examples-05a-pure-functions-definition" class="slide" data-has-notes="false">
+<h4>Pure functions</h4><blockquote>
+<p>Functions that has no side effects. It depends only on the input provided, does not inflict changes beyond its scope.</p>
+</blockquote>
+<p><img src="images/pure-function.png" alt=""></p>
+</section>
+
+<section id="features-and-examples-05b-pure-functions-examples" class="slide" data-has-notes="true">
+<h4>Pure functions</h4><pre><code class="lang-js">
+<span class="hljs-keyword">const</span> mult = (a, b) =&gt; a * b
+
+<span class="hljs-keyword">const</span> double = (a) =&gt; a * <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">const</span> giveMeFun = () =&gt; (a) =&gt; a
+</code></pre>
+</section>
+
+<section id="features-and-examples-06a-referential-transparency-definition" class="slide" data-has-notes="true">
+<h4>Referential transparency</h4><blockquote>
+<p>For a given sets of arguments, the same code should always output the same value, only by changing arguments can an output value be different.</p>
+</blockquote><aside class="notes"><ul>
+<li><p>you can determine the result of applying that function only by looking at the values of its arguments</p>
+<ul>
+<li><p>is a more formal way of defining a pure function.</p>
+</li>
+<li><p>Purity in this sense refers to the existence of a pure mapping between a function’s arguments and its return value.</p>
+</li>
+<li><p>a function that always yields the same result on the same input, it is said to be referentially transparent.</p>
+</li>
+<li><p>you can replace any expression with the result of evaluating that expression without changing the meaning of the program.</p>
+</li>
+</ul>
+</li>
+</ul></aside>
+</section>
+
+<section id="features-and-examples-06a-referential-transparency-examples" class="slide" data-has-notes="false">
+<h4>Referential transparency</h4><pre><code class="lang-js">
+<span class="hljs-keyword">const</span> mult = (a, b) =&gt; a * b
+
+
+
+<span class="hljs-keyword">const</span> result = mult(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>) + mult(<span class="hljs-number">4</span>, <span class="hljs-number">5</span>)
+
+
+
+<span class="hljs-keyword">const</span> result1 = <span class="hljs-number">6</span> + mult(<span class="hljs-number">4</span>, <span class="hljs-number">5</span>)
+
+
+
+<span class="hljs-keyword">const</span> result2 = <span class="hljs-number">6</span> + <span class="hljs-number">20</span>
+
+
+
+<span class="hljs-comment">// =&gt; result === result1 === result2</span>
+</code></pre>
+</section>
+
+<section id="features-and-examples-07a-immutability-definition" class="slide" data-has-notes="true">
+<h4>Immutability</h4><blockquote>
+<p>Inability for variables to change their value once created. All things created stay constant.</p>
+</blockquote><aside class="notes"><ul>
+<li><p>Immutable data structures ensure that your code won’t have side effects.</p>
+<ul>
+<li><p>Use persistent data structures</p>
+</li>
+<li><p>linked lists you can create different heads and modify objects but don&#39;t destroy previous version. Like git for data structures</p>
+</li>
+</ul>
+</li>
+</ul></aside>
+</section>
+
+<section id="features-and-examples-07b-immutability-examples" class="slide" data-has-notes="true">
+<h4>Immutability</h4><pre><code class="lang-js">
+<span class="hljs-comment">// in javascript strings are immutable</span>
+
+<span class="hljs-keyword">const</span> str = <span class="hljs-string">'You can\'t change this'</span>
+
+<span class="hljs-keyword">const</span> modStr = str.replace(<span class="hljs-string">'You can\'t'</span>, <span class="hljs-string">'I did'</span>)
+
+<span class="hljs-built_in">console</span>.log(str) <span class="hljs-comment">// "You can't change this."</span>
+
+<span class="hljs-built_in">console</span>.log(modStr) <span class="hljs-comment">// "I did change this."</span>
+</code></pre>
+<pre><code class="lang-js">
+<span class="hljs-comment">// other structres are mutable</span>
+
+<span class="hljs-keyword">const</span> arr = []
+
+<span class="hljs-keyword">const</span> v2 = arr.push(<span class="hljs-number">2</span>)
+
+<span class="hljs-built_in">console</span>.log(v2) <span class="hljs-comment">// 1 .... why JavaScript? why?!</span>
+</code></pre>
+<pre><code class="lang-js">
+<span class="hljs-keyword">const</span> sentence = [<span class="hljs-string">'please'</span>, <span class="hljs-string">'don\'t'</span>, <span class="hljs-string">'touch'</span>, <span class="hljs-string">'me'</span>, <span class="hljs-string">'javascipt'</span>]
+
+sentence.splice(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'oh'</span>, <span class="hljs-string">'you\'ve'</span>, <span class="hljs-string">'touched'</span> )
+
+<span class="hljs-built_in">console</span>.log(sentence)  <span class="hljs-comment">// Array [ "oh", "you've", "touched", "me", "javascipt" ]</span>
+</code></pre>
+</section>
+
+<section id="features-and-examples-08a-currying-definition" class="slide" data-has-notes="true">
+<h4>Currying</h4><blockquote>
+<p>Ability of a function to take one argument and return a new function until it receives all it’s arguments.</p>
+</blockquote><aside class="notes"><ul>
+<li>Converts a multivariable function into a step-wise sequence of unary functions.</li>
+</ul>
+<ul>
+<li>Higher-order functions enable currying,</li>
+</ul>
+<ul>
+<li>a function is applied to its arguments one at a time,  with each application returning a new (higher-order) function that accepts the next argument.</li>
+</ul>
+<ul>
+<li>Haskell Curry, who rediscovered a technique devised by another mathematician named Moses Schönfinkel.</li>
+</ul></aside>
+</section>
+
+<section id="features-and-examples-08b-currying-examples" class="slide" data-has-notes="false">
+<h4>Currying</h4><pre><code class="lang-js">
+<span class="hljs-keyword">const</span> name = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">last</span>) </span>{
+
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">first</span>) </span>{ 
+
+    <span class="hljs-keyword">return</span> last + <span class="hljs-string">', '</span> + first
+
+  }
+
+}
+
+
+
+<span class="hljs-comment">// the same function</span>
+
+<span class="hljs-keyword">const</span> name = last =&gt; first =&gt; <span class="hljs-string">`<span class="hljs-subst">${last}</span>, <span class="hljs-subst">${first}</span>`</span>
+
+
+
+name(<span class="hljs-string">'Curry'</span>)(<span class="hljs-string">'Haskell'</span>) <span class="hljs-comment">// Curry, Haskell</span>
+
+name(<span class="hljs-string">'Norris'</span>)(<span class="hljs-string">'Chuck'</span>)  <span class="hljs-comment">// Norris, Chuck</span>
+</code></pre>
+</section>
+
+<section id="features-and-examples-09a-partial-application-definition" class="slide" data-has-notes="false">
+<h4>Partial application</h4><blockquote>
+<p>Calling a function with only some of its arguments is called partial application.</p>
+</blockquote>
+</section>
+
+<section id="features-and-examples-09a-partial-application-examples" class="slide" data-has-notes="false">
+<h4>Partial application</h4><pre><code class="lang-js">
+<span class="hljs-keyword">var</span> name = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">last</span>) </span>{
+
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">first</span>) </span>{ 
+
+    <span class="hljs-keyword">return</span> last + <span class="hljs-string">', '</span> + first
+
+  }
+
+}
+
+
+
+<span class="hljs-keyword">var</span> partial = name(<span class="hljs-string">'Norris'</span>)
+
+
+
+partial(<span class="hljs-string">'Chuck'</span>)  <span class="hljs-comment">// Norris, Chuck</span>
+
+partial(<span class="hljs-string">'Adam'</span>)  <span class="hljs-comment">// Norris, Adam</span>
+</code></pre>
+</section>
+
+<section id="features-and-examples-10a-recursion-definition" class="slide" data-has-notes="false">
+<h4>Recursion</h4><blockquote>
+<p>Iteration in functional languages is usually accomplished via recursion. Recursive functions invoke themselves, allowing an operation to be performed over and over until the base case is reached.</p>
+</blockquote>
+</section>
+
+<section id="features-and-examples-10b-tail-call-definition" class="slide" data-has-notes="true">
+<h4>Tail call Optimization</h4><blockquote>
+<p>Ability to avoid allocation a new stack frame for a function call. Most commonly is a tail-recursion, where a recursive function uses constant stack space</p>
+</blockquote><aside class="notes"><ul>
+<li><p><strong>Tail-call elimination</strong></p>
+<p>when a function returns the result of calling itself, the language doesn’t actually perform another function call, it turns the whole thing into a loop for you.</p>
+</li>
+</ul></aside>
+</section>
+
+<section id="features-and-examples-10c-tail-call-examples" class="slide" data-has-notes="true">
+<h4>Tail call optimization examples</h4><pre><code class="lang-js">
+<span class="hljs-comment">// cannot be optimized</span>
+
+<span class="hljs-keyword">const</span> factorial = x =&gt; {
+
+    <span class="hljs-keyword">if</span> (x &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+
+    <span class="hljs-keyword">return</span> x * factorial(x<span class="hljs-number">-1</span>) <span class="hljs-comment">// (A) not tail call</span>
+
+}
+</code></pre>
+<pre><code class="lang-js">
+<span class="hljs-comment">// can be optimized</span>
+
+<span class="hljs-keyword">const</span> factorial = n =&gt; doFact(n, <span class="hljs-number">1</span>)
+
+
+
+<span class="hljs-keyword">const</span> doFact = (n, total) =&gt; {
+
+  <span class="hljs-keyword">if</span>( n &lt;= <span class="hljs-number">0</span> ) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+
+  <span class="hljs-keyword">if</span>( n &lt;= <span class="hljs-number">1</span> ) <span class="hljs-keyword">return</span> total
+
+  <span class="hljs-keyword">return</span> doFact(n<span class="hljs-number">-1</span>, n*total) <span class="hljs-comment">// (B) tail call</span>
+
+}
+</code></pre>
+</section>
+</section>
+
+<section id="recap" class="slide" data-has-notes="false">
+<div data-markdown
+
+     data-separator="^\n--\n"
+
+     data-separator-notes="^Note:"
+
+     data-attributes="--\s(.*?)$"
+
+     data-charset="utf-8">
+
+    <script type="text/template">
+
+## Revisiting FP benefits
+
+
+
+--
+
+## Revisiting FP benefits
+
+
+
+Functions
+
+- small functions are simpler, more maintainable <!-- .element: class="fragment slide" -->
+
+- composition makes more readable and fluent APIs <!-- .element: class="fragment slide" -->
+
+- function composition allow smaller and reusable building blocks <!-- .element: class="fragment slide" -->
+
+
+
+--
+
+## Revisiting FP benefits
+
+
+
+Testability
+
+- functional style code and pure functions are easier to test and reason about than stateful and imperative code <!-- .element: class="fragment slide" -->
+
+
+
+--
+
+## Revisiting FP benefits
+
+
+
+Optimizations
+
+- relying in language construct allows internal optimizations, parallelization, lazy evaluation <!-- .element: class="fragment slide" -->
+
+- pure functions have referential transparency, allowing cache heavy computations (memoization) <!-- .element: class="fragment slide" -->
+
+
+
+--
+
+## Revisiting FP benefits
+
+
+
+Side effects
+
+- side effects couple with time, or questions about "what's the state" <!-- .element: class="fragment slide" -->
+
+- avoid it by decomposing functions with side effects into pure functions and smaller functions with side effects <!-- .element: class="fragment slide" -->
+
+- repeat this process to push side effects to the outer layer of your programs <!-- .element: class="fragment slide" -->
+
+
+
+--
+
+## Revisiting FP benefits
+
+
+
+Immutability
+
+- Mutable state + parallel processing = non-determinism <!-- .element: class="fragment slide" -->
+
+- purely functional languages avoid race conditions because they don't have mutable variables <!-- .element: class="fragment slide" -->
+
+- Imperative code tends to have mutable state, and is more vulnerable to race conditions <!-- .element: class="fragment slide" -->
+
+
+
+--
+
+## Revisiting FP benefits
+
+
+
+Elegance
+
+- There is a subset of very important concepts—borrowed from mathematics that form the backbone of all functional programming. <!-- .element: class="fragment slide" -->
+
+- More declarative. Write less code and focus more on **what** to do and less on **how** to do it. <!-- .element: class="fragment slide" -->
+
+
+
+    </script>
+
+</div>
+</section>
+
+<section id="conclusion" class="slide" data-has-notes="false">
+<div data-markdown
+
+     data-separator="^\n--\n"
+
+     data-separator-notes="^Note:"
+
+     data-attributes="--\s(.*?)$"
+
+     data-charset="utf-8">
+
+    <script type="text/template">
+
+## Conclusions
+
+
+
+- Learn a pure functional language (ClojureScript, Scala, Haskell, F#, etc). <!-- .element: class="fragment slide" -->
+
+- Or adopt more functional techniques. <!-- .element: class="fragment slide" -->
+
+- Master the basic list operators reduce, map, filter (this is language agnostic). <!-- .element: class="fragment slide" -->
+
+- Think about results, not steps. <!-- .element: class="fragment slide" -->
+
+- Always check if your functions can be made pure. <!-- .element: class="fragment slide" -->
+
+    - And make them small, reusable and composable. <!-- .element: class="fragment slide" -->
+
+- Cede control to language construct/optimizations.  <!-- .element: class="fragment slide" -->
+
+- Try to manage state in an immutable way. <!-- .element: class="fragment slide" -->
+
+- But above all these things... <!-- .element: class="fragment slide" -->
+
+
+
+    </script>
+
+</div>
+</section>
+
+<section id="fun" class="slide" data-has-notes="false">
+<div data-markdown
+
+     data-separator="^\n--\n"
+
+     data-separator-notes="^Note:"
+
+     data-attributes="--\s(.*?)$"
+
+     data-charset="utf-8">
+
+    <script type="text/template">
+
+## HAVE FUN PROGRAMMING!
+
+
+
+![](images/fun-programming.gif)
+
+
+
+    </script>
+
+</div>
+</section>
+
+<section id="bibliography" class="slide" data-has-notes="false">
+<div data-markdown
+
+     data-separator="^\n--\n"
+
+     data-separator-notes="^Note:"
+
+     data-attributes="--\s(.*?)$"
+
+     data-charset="utf-8">
+
+    <script type="text/template">
+
+# Fin
+
+
+
+--
+
+## Bibliography
+
+
+
+- <a href="http://www.2ality.com/2015/06/tail-call-optimization.html">Tail call optimization</a>
+
+- <a href="https://www.fpcomplete.com/blog/2012/04/the-downfall-of-imperative-programming">The Downfall of Imperative Programming</a>
+
+- <a href="http://raganwald.com/2013/04/08/functional-vs-OOP.html">Functional vs OOP</a>
+
+- <a href="http://raganwald.com/2013/04/08/functional-vs-OOP.html">When FP? And when OOP?</a>
+
+- <a href="http://developer.telerik.com/featured/practical-functional-javascript-ramda/">Practical Functional Javascript with Ramda</a>
+
+- <a href="https://dzone.com/refcardz/functional-programming-with-javascript">DZone Refcard</a>
+
+
+
+--
+
+## Books
+
+
+
+- <a href="http://blog.fogus.me/2013/03/20/fun-js/">Functional Javascript</a> by <a href="http://twitter.com/fogus">@fogus</a>
+
+- <a href="https://leanpub.com/javascript-allonge">Javascript Allongé</a> by <a href="http://twitter.com/raganwald">@raganwald</a>
+
+- <a href="https://leanpub.com/fp-oo">FP for the OO Programmer</a>
+
+- <a href="https://github.com/MostlyAdequate/mostly-adequate-guide">Mostly Adequate Guide to Functional Programming</a>
+
+    - (partially in <a href="https://github.com/MostlyAdequate/mostly-adequate-guide-es">Spanish</a>)
+
+
+
+    </script>
+
+</div>
+</section></div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: Reveal.getQueryHash().transition || 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+        //{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+    </script>
+
+    <script src="js/dynamic-theme.js"></script><script src="js/such-notes-print.js"></script><script src="js/custom.js"></script>
+
+  </body>
+</html>
