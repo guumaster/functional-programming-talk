@@ -1,3 +1,3 @@
 # Another functional programming talk
 
-WIP
+[online presentation](https://guumaster.github.io/functional-programming-talk)
